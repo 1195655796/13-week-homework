@@ -1,0 +1,35 @@
+[package]
+name = "taotie"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.83"
+arrow = { version = "51.0.0", features = ["prettyprint"] }
+chrono = { version = "0.4.38", features = ["serde"] }
+clap = { version = "4.5.4", features = ["derive"] }
+crossbeam-channel = "0.5.12"
+datafusion = { version = "38.0.0", features = ["serde"] }
+
+dirs = "5.0.1"
+enum_dispatch = "0.3.13"
+oneshot = "0.1.6"
+parquet = "51.0.0"
+polars = { version = "0.39.2", features = [
+  "parquet",
+  "timezones",
+  "sql",
+  "lazy",
+] }
+reedline-repl-rs = { version = "1.1.1", features = ["derive"] }
+serde = { version = "1.0.201", features = ["derive"] }
+serde_json = "1.0.117"
+tokio = { version = "1.37.0", features = ["rt", "rt-multi-thread", "macros"] }
+reqwest = { version = "0.12.5", features = ["blocking"] }
+regex = "1.10.5"
+
+
+[dev-dependencies]
+assert_approx_eq = "1.1"
