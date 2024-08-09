@@ -1,5 +1,5 @@
-mod backend;
-mod cli;
+pub mod backend;
+pub mod cli;
 
 use backend::DataFusionBackend;
 use cli::*;

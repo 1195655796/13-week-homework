@@ -66,10 +66,10 @@ impl DescribeDataFrame {
             self.stddev(),
             self.min(),
             self.max(),
-            self.medium(),
             self.percentile(25),
             self.percentile(50),
             self.percentile(75),
+            self.medium(),
             self.count(),
             self.mode_count(),
 
@@ -324,6 +324,4 @@ impl DescribeDataFrame {
     Ok(result_df)
 }
 }
-    
-
     

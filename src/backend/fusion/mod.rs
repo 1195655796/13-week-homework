@@ -1,5 +1,5 @@
-mod describe;
-mod df_describe;
+pub mod describe;
+pub mod df_describe;
 
 use arrow::{array::RecordBatch, util::pretty::pretty_format_batches};
 use datafusion::{
@@ -76,7 +76,7 @@ impl Backend for DataFusionBackend {
 
     async fn describe(&self, name: &str) -> anyhow::Result<impl ReplDisplay> {
         let df = self.0.sql(&format!("select * from {}", name)).await?;
-        let ddf = DataFrameDescriber::try_new(df)?;
+        let ddf = DataFrameDescriber::try_new(df).await.unwrap();
         ddf.describe().await
     }
 

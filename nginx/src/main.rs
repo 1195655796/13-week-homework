@@ -62,6 +62,7 @@ fn main() -> Result<(), Box<dyn Error>> {
     ])?;
 
     println!("Dataframe {:?}", df);
+    println!("Dataframe columns type: {:?}", df.dtypes());
 
     let file = File::create("nginx_logs.parquet")?;
     ParquetWriter::new(file).finish(&mut df.clone())?;
